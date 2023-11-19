@@ -34,8 +34,8 @@ public class MakeChangeHW {
     private static void handleDollars(int changeInCents) {
         int dollars = changeInCents / 100;
         if (dollars > 0) {
-            if (dollars == 1) {
-                System.out.println(dollars + " dollar");
+            if (dollars == 10 || dollars == 5) {
+                System.out.println(dollars + " dollar bill");
             } else {
                 System.out.println(dollars + " dollars");
             }
