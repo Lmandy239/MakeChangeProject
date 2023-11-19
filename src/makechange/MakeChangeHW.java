@@ -4,72 +4,48 @@ import java.util.Scanner;
 
 public class MakeChangeHW {
 	public static void main(String[] args) {
-//		In the cash register we will calculate the amount of change returned to a 
-//		customer based on the purchase price and the amount tendered.
-//      ($20 ,$10 ,$5 ,$1, .25c, .10c, .05c, .01c) 
-		Menu();
+		Scanner keyboard = new Scanner(System.in);
+		double priceOfItem = 0;
+		double amountTendered = 0;
+		int twentyDollarBill = 20;
+		int tenDollarBill = 10;
+		double fiveDollarBill = 5;
+		double oneDollarBill = 1;
+		double oneQuarter = 0.25;
+		double oneDime = 0.10;
 
-	}
-
-	public static void Menu() {
-		Scanner input = new Scanner(System.in);
-		String choice = "";
-		System.out.println(" Hello Sir, what would you like to buy?\n" + "\tPlease Choose: \n");
-		System.out.println("\t//////////////////");
-		System.out.println("\t//Apples     20$//");
-		System.out.println("\t//Bananas    15$//");
-		System.out.println("\t//Cake       10$//");
-		System.out.println("\t//Waffles     5$//");
-		System.out.println("\t//Cherry      1$//");
-		System.out.println("\t//Egg     0.25c$//");
-		System.out.println("\t//Salt    0.10c$//");
-		System.out.println("\t//Pepper  0.15c$//");
-		System.out.println("\t//////////////////");
-		choice = input.next();
-
-		{
-			if (choice.equals("Apples")) {
-
-				ChoiceS();
-
-			} else if (choice.equals("Bananas")) {
-
-				ChoiceS();
-
-			}  else if (choice.equals("Cake")) {
-
-				ChoiceS();
-
-			} else if (choice.equals("Waffles")) {
-
-				ChoiceS();
-
-			} else if (choice.equals("Cherry")) {
-
-				ChoiceS();
-
-			} else if (choice.equals("Egg")) {
-
-				ChoiceS();
-
-			} else if (choice.equals("Salt")) {
-
-				ChoiceS();
-
-			} else if (choice.equals("Pepper")) {
-
-				ChoiceS();
-
-			} else {
-				System.out.println("Please type a valid choice!");
-
-			}
+		System.out.println("Enter the price of an item: ");
+		priceOfItem = keyboard.nextDouble();
+		System.out.println("Enter the amount to be tendered: ");
+		amountTendered = keyboard.nextDouble();
+		int change1 = (int) (amountTendered - priceOfItem);
+		keyboard.close();
+		
+		if (amountTendered < priceOfItem) {
+			System.out.println("Your amount is insuficient! please enter a higher amount.");
 		}
 
-	}
+		else if (amountTendered == priceOfItem) {
+			System.out.println("No change!, Exact amount entered!!");
+		}
 
-	public static void ChoiceS() {
-		System.out.println("Good Choice! Please enter money to continue the purchase: ");
+		else {
+		
+			if (change1 >= 20) {
+			  twentyDollarBill = change1 / twentyDollarBill; 
+			  if (twentyDollarBill >= 2) {
+				   change1 = 20;
+				  System.out.println(twentyDollarBill + ": " + change1 + " dollar bills");
+			  } else if (twentyDollarBill == 1) {
+				  System.out.println("1: 20 dollar bill");
+			  }
+			  change1 %= 20;
+			}
+		
+			
+			
+			
+		}
 	}
 
 }
